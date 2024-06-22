@@ -1,0 +1,3 @@
+${id},${username},${firstname},${lastname},${email},${password},${phone},${userStatus}
+11201,fabio.faria,Fabio,Faria,fabio.faria@hotmail.com,1234,27988770011,1
+11202,alana.faria,Alana,Faria,alana.faria@hotmail.com,1233,27988770022,1

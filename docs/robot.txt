@@ -1,0 +1,3 @@
+Robot framework é realmente um framework
+
+é um organizador e facilitador da automação geral (RPA - Robotic Automation Process/ Automação Robótica de Processo) ou de teste

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.12.0 on win32)" generated="2024-06-20T14:36:22.979123" rpa="false" schemaversion="5">
+<suite id="s1" name="test deleteUserJson" source="c:\Users\PC\OneDrive\Área de Trabalho\FormaçãoDeTeste\Iterasys\petStoreRobot\__tests__\test_deleteUserJson.robot">
+<test id="s1-t1" name="TC001" line="12">
+<kw name="Delete user">
+<kw name="Convert To Integer" owner="BuiltIn">
+<msg time="2024-06-20T14:36:23.161634" level="INFO">${id} = 11201</msg>
+<var>${id}</var>
+<arg>${id}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="PASS" start="2024-06-20T14:36:23.160632" elapsed="0.004002"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-06-20T14:36:23.165632" level="INFO">${body} = {'id': 11201, 'username': 'fabio.faria', 'firstname': 'Fabio', 'lastname': 'Faria', 'email': 'fabio.faria@hotmail.com', 'password': '1234', 'phone': '27988770011', 'userStatus': '1'}</msg>
+<var>${body}</var>
+<arg>id=${id}</arg>
+<arg>username=${username}</arg>
+<arg>firstname=${firstname}</arg>
+<arg>lastname=${lastname}</arg>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<arg>phone=${phone}</arg>
+<arg>userStatus=${userStatus}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-06-20T14:36:23.164634" elapsed="0.002002"/>
+</kw>
+<kw name="DELETE" owner="RequestsLibrary">
+<msg time="2024-06-20T14:36:24.225586" level="INFO">DELETE Request : url=https://petstore.swagger.io/v2/user/fabio.faria 
+ path_url=/v2/user/fabio.faria 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2024-06-20T14:36:24.225586" level="INFO">DELETE Response : url=https://petstore.swagger.io/v2/user/fabio.faria 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 20 Jun 2024 17:36:25 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"code":200,"type":"unknown","message":"fabio.faria"} 
+ </msg>
+<msg time="2024-06-20T14:36:24.226601" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${{$url + '/' + $username}}</arg>
+<doc>Sends a DELETE request.</doc>
+<status status="PASS" start="2024-06-20T14:36:23.166636" elapsed="1.059965"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-06-20T14:36:24.227600" level="INFO">${response_body} = {'code': 200, 'type': 'unknown', 'message': 'fabio.faria'}</msg>
+<var>${response_body}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-06-20T14:36:24.226601" elapsed="0.000999"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response_body}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-06-20T14:36:24.227600" elapsed="0.000984"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-06-20T14:36:24.228584" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response_body}[code]</arg>
+<arg>${{int(200)}}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-20T14:36:24.228584" elapsed="0.001001"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response_body}[type]</arg>
+<arg>unknown</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-20T14:36:24.229585" elapsed="0.001000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response_body}[message]</arg>
+<arg>${username}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-20T14:36:24.230585" elapsed="0.000000"/>
+</kw>
+<arg>id=11201</arg>
+<arg>username=fabio.faria</arg>
+<arg>firstname=Fabio</arg>
+<arg>lastname=Faria</arg>
+<arg>email=fabio.faria@hotmail.com</arg>
+<arg>password=1234</arg>
+<arg>phone=27988770011</arg>
+<arg>userStatus=1</arg>
+<status status="PASS" start="2024-06-20T14:36:23.159632" elapsed="1.070953"/>
+</kw>
+<status status="PASS" start="2024-06-20T14:36:23.158630" elapsed="1.072966"/>
+</test>
+<test id="s1-t2" name="TC001" line="12">
+<kw name="Delete user">
+<kw name="Convert To Integer" owner="BuiltIn">
+<msg time="2024-06-20T14:36:24.236586" level="INFO">${id} = 11202</msg>
+<var>${id}</var>
+<arg>${id}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="PASS" start="2024-06-20T14:36:24.235588" elapsed="0.000998"/>
+</kw>
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2024-06-20T14:36:24.237585" level="INFO">${body} = {'id': 11202, 'username': 'alana.faria', 'firstname': 'Alana', 'lastname': 'Faria', 'email': 'alana.faria@hotmail.com', 'password': '1233', 'phone': '27988770022', 'userStatus': '1'}</msg>
+<var>${body}</var>
+<arg>id=${id}</arg>
+<arg>username=${username}</arg>
+<arg>firstname=${firstname}</arg>
+<arg>lastname=${lastname}</arg>
+<arg>email=${email}</arg>
+<arg>password=${password}</arg>
+<arg>phone=${phone}</arg>
+<arg>userStatus=${userStatus}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2024-06-20T14:36:24.236586" elapsed="0.000999"/>
+</kw>
+<kw name="DELETE" owner="RequestsLibrary">
+<msg time="2024-06-20T14:36:25.198293" level="INFO">DELETE Request : url=https://petstore.swagger.io/v2/user/alana.faria 
+ path_url=/v2/user/alana.faria 
+ headers={'User-Agent': 'python-requests/2.31.0', 'Accept-Encoding': 'gzip, deflate', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2024-06-20T14:36:25.198293" level="INFO">DELETE Response : url=https://petstore.swagger.io/v2/user/alana.faria 
+ status=200, reason=OK 
+ headers={'Date': 'Thu, 20 Jun 2024 17:36:26 GMT', 'Content-Type': 'application/json', 'Transfer-Encoding': 'chunked', 'Connection': 'keep-alive', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'GET, POST, DELETE, PUT', 'Access-Control-Allow-Headers': 'Content-Type, api_key, Authorization', 'Server': 'Jetty(9.2.9.v20150224)'} 
+ body={"code":200,"type":"unknown","message":"alana.faria"} 
+ </msg>
+<msg time="2024-06-20T14:36:25.199323" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>${{$url + '/' + $username}}</arg>
+<doc>Sends a DELETE request.</doc>
+<status status="PASS" start="2024-06-20T14:36:24.237585" elapsed="0.961738"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2024-06-20T14:36:25.200321" level="INFO">${response_body} = {'code': 200, 'type': 'unknown', 'message': 'alana.faria'}</msg>
+<var>${response_body}</var>
+<arg>${response.json()}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2024-06-20T14:36:25.199323" elapsed="0.000998"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${response_body}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2024-06-20T14:36:25.200321" elapsed="0.000985"/>
+</kw>
+<kw name="Status Should Be" owner="RequestsLibrary">
+<arg>200</arg>
+<doc>Fails if response status code is different than the expected.</doc>
+<status status="PASS" start="2024-06-20T14:36:25.201306" elapsed="0.000000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response_body}[code]</arg>
+<arg>${{int(200)}}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-20T14:36:25.201306" elapsed="0.001002"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response_body}[type]</arg>
+<arg>unknown</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-20T14:36:25.202308" elapsed="0.001000"/>
+</kw>
+<kw name="Should Be Equal" owner="BuiltIn">
+<arg>${response_body}[message]</arg>
+<arg>${username}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<status status="PASS" start="2024-06-20T14:36:25.203308" elapsed="0.000000"/>
+</kw>
+<arg>id=11202</arg>
+<arg>username=alana.faria</arg>
+<arg>firstname=Alana</arg>
+<arg>lastname=Faria</arg>
+<arg>email=alana.faria@hotmail.com</arg>
+<arg>password=1233</arg>
+<arg>phone=27988770022</arg>
+<arg>userStatus=1</arg>
+<status status="PASS" start="2024-06-20T14:36:24.234586" elapsed="0.968722"/>
+</kw>
+<status status="PASS" start="2024-06-20T14:36:24.233586" elapsed="0.970721"/>
+</test>
+<status status="PASS" start="2024-06-20T14:36:22.986121" elapsed="2.219185"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="test deleteUserJson">test deleteUserJson</stat>
+</suite>
+</statistics>
+<errors>
+<msg time="2024-06-20T14:36:22.968122" level="WARN">Error in file 'c:\Users\PC\OneDrive\Área de Trabalho\FormaçãoDeTeste\Iterasys\petStoreRobot\__tests__\test_deleteUserJson.robot' on line 1: Singular section headers like '*** Setting ***' are deprecated. Use plural format like '*** Settings ***' instead.</msg>
+<msg time="2024-06-20T14:36:22.968122" level="WARN">Error in file 'c:\Users\PC\OneDrive\Área de Trabalho\FormaçãoDeTeste\Iterasys\petStoreRobot\__tests__\test_deleteUserJson.robot' on line 7: Singular section headers like '*** Variable ***' are deprecated. Use plural format like '*** Variables ***' instead.</msg>
+<msg time="2024-06-20T14:36:24.232585" level="WARN">Multiple tests with name 'TC001' executed in suite 'test deleteUserJson'.</msg>
+</errors>
+</robot>

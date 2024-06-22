@@ -1,0 +1,18 @@
+{
+    "id": 112092001,
+    "category": {
+    "id": 1,
+    "name": "dog"
+},
+"name": "Princesa",
+"photoUrls": [
+    ""
+],
+"tags": [
+    {
+    "id": 1,
+    "name": "vacinado"
+    }
+],
+"status": "sold"
+}
